@@ -21,9 +21,14 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    return _.reduce(this, function(wasFound, node) {
-      return wasFound || node.value === target;
-    }, false);
+    var current = this.head || this;
+    while ( current ) {
+      if ( current.value === target ) {
+        return true;
+      }
+      current = current.next;
+    }
+    return false;
   };
 
   return list;

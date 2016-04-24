@@ -58,9 +58,14 @@ DoublyLinkedList.prototype.removeHead = function() {
 };
 
 DoublyLinkedList.prototype.contains = function(value) {
-  return _.reduce(this, function(wasFound, node) {
-    return wasFound || node.value === value;
-  }, false);
+  var current = this.head || this;
+  while ( current ) {
+    if ( current.value === value ) {
+      return true;
+    }
+    current = current.next;
+  }
+  return false;
 };
 
 
