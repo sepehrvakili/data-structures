@@ -18,13 +18,11 @@ setPrototype.contains = function(item) {
 };
 
 setPrototype.remove = function(item) {
-  var newArray = [];
   for ( var i = 0; i < this._storage.length; i++ ) {
-    if ( this._storage[i] !== item ) {
-      newArray.push(this._storage[i]);
+    if ( this._storage[i] === item ) {
+      this._storage.splice(i, 1);
     }
   }
-  this._storage = newArray;
 };
 
 /*

@@ -1,5 +1,3 @@
-
-
 // ------------------------ 
 // Instantiate a new graph
 var Graph = function() {
@@ -42,13 +40,11 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 // ------------------------
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
-  var newEdges = [];
   for ( var i = 0; i < this.nodes[fromNode].length; i++ ) {
-    if ( this.nodes[fromNode][i] !== toNode ) {
-      newEdges.push(this.nodes[fromNode][i]);
+    if ( this.nodes[fromNode][i] === toNode ) {
+      this.nodes[fromNode].splice(i, 1);
     }
   }
-  this.nodes[fromNode] = newEdges;
 };
 
 // ------------------------
