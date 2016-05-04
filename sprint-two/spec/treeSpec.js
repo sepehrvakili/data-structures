@@ -41,4 +41,30 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should have a parent value referencing the tree that addChild was called on', function() {
+    expect(tree.parent).to.equal(null);
+    tree.addChild(5);
+    expect(tree.children[0].parent).to.equal(tree);
+    tree.addChild(7);
+    expect(tree.children[1].parent).to.equal(tree);
+    tree.children[0].addChild(6);
+    expect(tree.children[0].children[0].parent).to.equal(tree.children[0]);
+  });
+
+  // it('should disassociate a node from its parent when removeFromParent was called', function() {
+  //   tree.addChild(2);
+  //   tree.addChild(3);
+  //   tree.children[1].addChild(4);
+  //   tree.children[1].children[0].addChild(5);
+  //   tree.children[1].children[1].addChild(6);
+  // });
+
 });
+
+
+
+
+
+
+
+
